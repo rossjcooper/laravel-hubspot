@@ -2,7 +2,6 @@
     "name": "rossjcooper/laravel-hubspot",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "Ross Cooper",
@@ -10,7 +9,7 @@
         }
     ],
     "require": {
-        "ryanwinchester/hubspot-php": "1.0.*@dev",
+        "ryanwinchester/hubspot-php": "1.0.*",
         "illuminate/support": "^5.3"
     }
 }
