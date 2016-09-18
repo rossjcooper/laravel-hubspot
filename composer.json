@@ -1,0 +1,15 @@
+{
+    "name": "rossjcooper/laravel-hubspot",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ross Cooper",
+            "email": "therossjcooper@gmail.com"
+        }
+    ],
+    "require": {
+        "ryanwinchester/hubspot-php": "1.0.*@dev",
+        "illuminate/support": "^5.3"
+    }
+}
