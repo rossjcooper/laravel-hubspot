@@ -9,7 +9,11 @@
         }
     ],
     "require": {
-        "ryanwinchester/hubspot-php": "1.0.*",
-        "illuminate/support": "^5.3"
+        "ryanwinchester/hubspot-php": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rossjcooper\\LaravelHubSpot\\": "src"
+        }
     }
 }
