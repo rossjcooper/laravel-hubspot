@@ -20,4 +20,17 @@ class HubSpotServiceProvider extends ServiceProvider
             return HubSpot::create(config('hubspot.api_key') || env('HUBSPOT_API_KEY'));
         });
     }
+
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // config
+        $this->publishes([
+            __DIR__ . '/config/hubspot.php' => config_path('hubspot.php')
+        ], 'config');
+    }
 }
