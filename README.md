@@ -38,5 +38,5 @@ Route::get('/', function (Rossjcooper\LaravelHubSpot\HubSpot $hubspot) {
 
 For more info on using the actual API see the main repo [ryanwinchester/hubspot-php](https://github.com/ryanwinchester/hubspot-php)
 
-##Issues
+## Issues
 Please only report issues relating to the Laravel side of things here, main API issues should be reported [here](https://github.com/ryanwinchester/hubspot-php/issues)
