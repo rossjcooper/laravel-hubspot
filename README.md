@@ -25,7 +25,7 @@ $response = HubSpot::contacts()->all();
 ### Dependency Injection
 ```php
 Route::get('/', function (Rossjcooper\LaravelHubSpot\HubSpot $hubspot) {
-    $response = $hubspot->:contacts()->all();
+    $response = $hubspot->contacts()->all();
     foreach ($response->contacts as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
