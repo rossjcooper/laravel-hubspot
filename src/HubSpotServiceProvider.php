@@ -17,7 +17,7 @@ class HubSpotServiceProvider extends ServiceProvider
     {
         //Bind the HubSpot wrapper class
         $this->app->bind('Rossjcooper\LaravelHubSpot\HubSpot', function ($app) {
-            return HubSpot::create(config('hubspot.api_key') || env('HUBSPOT_API_KEY'));
+            return HubSpot::create(env('HUBSPOT_API_KEY', config('hubspot.api_key')));
         });
     }
 
