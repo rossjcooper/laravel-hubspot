@@ -3,11 +3,11 @@ This is a wrapper for the [ryanwinchester/hubspot-php](https://github.com/ryanwi
 
 ## Installation
 1. `composer require rossjcooper/laravel-hubspot`
-2. Get a HubSpot API Key from the Intergrations page of your HubSpot account.
-3. `php artisan vendor:publish --provider="Rossjcooper\LaravelHubSpot\HubSpotServiceProvider" --tag="config"` will create a `config/hubspot.php` file.
-4. Add your HubSpot API key into the your `.env` file: `HUBSPOT_API_KEY=yourApiKey`
-5. Add `Rossjcooper\LaravelHubSpot\HubSpotServiceProvider::class` to your providers in your `config/app.php` file.
-6. Add `'HubSpot' => Rossjcooper\LaravelHubSpot\Facades\HubSpot::class` to your aliases in your `config/app.php` file.
+1. Get a HubSpot API Key from the Intergrations page of your HubSpot account.
+1. Add `Rossjcooper\LaravelHubSpot\HubSpotServiceProvider::class` to your providers in your `config/app.php` file.
+1. `php artisan vendor:publish --provider="Rossjcooper\LaravelHubSpot\HubSpotServiceProvider" --tag="config"` will create a `config/hubspot.php` file.
+1. Add your HubSpot API key into the your `.env` file: `HUBSPOT_API_KEY=yourApiKey`
+1. Add `'HubSpot' => Rossjcooper\LaravelHubSpot\Facades\HubSpot::class` to your aliases in your `config/app.php` file.
 
 ## Usage
 You can use either the facade or inject the HubSpot class as a dependency:
