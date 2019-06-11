@@ -9,11 +9,19 @@
         }
     ],
     "require": {
-        "ryanwinchester/hubspot-php": "~1.0"
+        "ryanwinchester/hubspot-php": "~1.0",
+        "illuminate/support": "^5.3"
     },
     "autoload": {
         "psr-4": {
             "Rossjcooper\\LaravelHubSpot\\": "src/"
         }
-    }
+    },
+    "description": "Adds a Laravel specific wrapper for the Hubspot client package",
+    "keywords": [
+        "laravel",
+        "hubspot",
+        "api",
+        "service"
+    ]
 }
