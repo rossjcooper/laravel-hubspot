@@ -20,7 +20,7 @@ class HubSpotServiceProvider extends ServiceProvider
             return HubSpot::create(
 				env('HUBSPOT_API_KEY', config('hubspot.api_key')),
 				null,
-				config('hubspot.client_options')
+				config('hubspot.client_options', [])
 			);
         });
     }
