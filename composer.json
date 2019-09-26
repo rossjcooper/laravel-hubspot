@@ -17,6 +17,16 @@
             "Rossjcooper\\LaravelHubSpot\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rossjcooper\\LaravelHubSpot\\HubSpotServiceProvider"
+            ],
+            "aliases": {
+                "HubSpot": "Rossjcooper\\LaravelHubSpot\\Facades\\HubSpot"
+            }
+        }
+    },
     "description": "Adds a Laravel specific wrapper for the Hubspot client package",
     "keywords": [
         "laravel",
