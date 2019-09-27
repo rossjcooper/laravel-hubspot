@@ -4,14 +4,20 @@ namespace Tests;
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Orchestra\Testbench\TestCase as OrchTestCase;
+use Rossjcooper\LaravelHubSpot\HubSpotServiceProvider;
 
 abstract class TestCase extends OrchTestCase
 {
 	/**
+	 * Load our ServiceProvider
+	 */
+	protected function getPackageProviders($app)
+	{
+		return [HubSpotServiceProvider::class];
+	}
+
+	/**
 	 * Loads in our package .env file
-	 *
-	 * @param [type] $app
-	 * @return void
 	 */
 	protected function getEnvironmentSetUp($app)
 	{
