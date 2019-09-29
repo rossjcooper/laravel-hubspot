@@ -7,10 +7,14 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
+		 defaultTestSuite="unit"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Unit">
+        <testsuite name="unit">
             <directory>./tests/Unit/</directory>
+        </testsuite>
+		<testsuite name="api">
+            <directory>./tests/API/</directory>
         </testsuite>
     </testsuites>
     <filter>
