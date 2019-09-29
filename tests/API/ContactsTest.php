@@ -7,7 +7,6 @@ use Rossjcooper\LaravelHubSpot\HubSpot;
 
 class ContactsTest extends TestCase
 {
-
 	public function test_get_contacts()
 	{
 		$hubspot = app(HubSpot::class);

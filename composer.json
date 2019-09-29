@@ -36,6 +36,7 @@
         "service"
     ],
     "require-dev": {
-        "orchestra/testbench": ">=3.4"
+        "orchestra/testbench": ">=3.4",
+        "friendsofphp/php-cs-fixer": "^2.15"
     }
 }

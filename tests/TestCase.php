@@ -9,7 +9,7 @@ use Rossjcooper\LaravelHubSpot\HubSpotServiceProvider;
 abstract class TestCase extends OrchTestCase
 {
 	/**
-	 * Load our ServiceProvider
+	 * Load our ServiceProvider.
 	 */
 	protected function getPackageProviders($app)
 	{
@@ -17,11 +17,11 @@ abstract class TestCase extends OrchTestCase
 	}
 
 	/**
-	 * Loads in our package .env file
+	 * Loads in our package .env file.
 	 */
 	protected function getEnvironmentSetUp($app)
 	{
-		$app->useEnvironmentPath(__DIR__ . '/..');
+		$app->useEnvironmentPath(__DIR__.'/..');
 		$app->bootstrapWith([LoadEnvironmentVariables::class]);
 		parent::getEnvironmentSetUp($app);
 	}
