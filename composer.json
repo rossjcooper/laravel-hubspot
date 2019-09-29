@@ -10,11 +10,12 @@
     ],
     "require": {
         "ryanwinchester/hubspot-php": "~1.0",
-        "illuminate/support": "^5.3"
+        "illuminate/support": ">=5.3"
     },
     "autoload": {
         "psr-4": {
-            "Rossjcooper\\LaravelHubSpot\\": "src/"
+            "Rossjcooper\\LaravelHubSpot\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "extra": {
@@ -33,5 +34,8 @@
         "hubspot",
         "api",
         "service"
-    ]
+    ],
+    "require-dev": {
+        "orchestra/testbench": ">=3.4"
+    }
 }

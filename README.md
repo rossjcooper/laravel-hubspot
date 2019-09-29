@@ -40,5 +40,11 @@ Route::get('/', function (Rossjcooper\LaravelHubSpot\HubSpot $hubspot) {
 
 For more info on using the actual API see the main repo [ryanwinchester/hubspot-php](https://github.com/ryanwinchester/hubspot-php)
 
+## Testing
+
+We're using the brilliant [Orchestra Testbench](https://github.com/orchestral/testbench) v4 to run unit tests in a Laravel based environment. If you wish to run tests be sure to have a HubSpot API key inside your `.env` file and run `./vendor/bin/phpunit`
+
+Current unit test access the HubSpot API and expect to see the demo contacts/leads that HubSpot provides to its developer accounts.
+
 ## Issues
 Please only report issues relating to the Laravel side of things here, main API issues should be reported [here](https://github.com/ryanwinchester/hubspot-php/issues)
