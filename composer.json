@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "ryanwinchester/hubspot-php": "~1.0",
-        "illuminate/support": ">=5.3"
+        "illuminate/support": ">=5.3",
+        "hubspot/hubspot-php": "^1.2"
     },
     "autoload": {
         "psr-4": {
