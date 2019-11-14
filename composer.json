@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "ryanwinchester/hubspot-php": "~1.0",
+        "hubspot/hubspot-php": "~1.0",
         "illuminate/support": ">=5.3"
     },
     "autoload": {
