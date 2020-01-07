@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/rossjcooper/laravel-hubspot/v/stable)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Total Downloads](https://poser.pugx.org/rossjcooper/laravel-hubspot/downloads)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Build Status](https://travis-ci.org/rossjcooper/laravel-hubspot.svg?branch=master)](https://travis-ci.org/rossjcooper/laravel-hubspot)
 
-This is a wrapper for the [ryanwinchester/hubspot-php](https://github.com/ryanwinchester/hubspot-php) package and gives the user a Service Container binding and facade of the `SevenShores\Hubspot\Factory::create('api-key')` function.
+This is a wrapper for the [hubspot/hubspot-php](https://github.com/HubSpot/hubspot-php) package and gives the user a Service Container binding and facade of the `SevenShores\Hubspot\Factory::create('api-key')` function.
 
 ## Installation
 1. `composer require rossjcooper/laravel-hubspot`
@@ -41,7 +41,7 @@ Route::get('/', function (Rossjcooper\LaravelHubSpot\HubSpot $hubspot) {
 });
 ```
 
-For more info on using the actual API see the main repo [ryanwinchester/hubspot-php](https://github.com/ryanwinchester/hubspot-php)
+For more info on using the actual API see the main repo [hubspot/hubspot-php](https://github.com/HubSpot/hubspot-php)
 
 ## Testing
 
