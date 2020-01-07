@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Rossjcooper\LaravelHubSpot\HubSpot;
+use Tests\TestCase;
 
 class ServiceProviderTest extends TestCase
 {
