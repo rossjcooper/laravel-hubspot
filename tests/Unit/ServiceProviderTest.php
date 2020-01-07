@@ -18,6 +18,6 @@ class ServiceProviderTest extends TestCase
 	{
 		$hubspot = app(HubSpot::class);
 
-		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->client->key);
+		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->getClient()->key);
 	}
 }
