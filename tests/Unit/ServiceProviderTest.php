@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Rossjcooper\LaravelHubSpot\HubSpot;
+use Tests\TestCase;
 
 class ServiceProviderTest extends TestCase
 {
@@ -18,6 +18,6 @@ class ServiceProviderTest extends TestCase
 	{
 		$hubspot = app(HubSpot::class);
 
-		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->client->key);
+		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->getClient()->key);
 	}
 }

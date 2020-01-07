@@ -2,8 +2,8 @@
 
 namespace Tests\API;
 
-use Tests\TestCase;
 use Rossjcooper\LaravelHubSpot\HubSpot;
+use Tests\TestCase;
 
 class ContactsTest extends TestCase
 {
