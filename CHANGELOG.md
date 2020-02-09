@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Update HubSpot composer dependency. Allows use of current / future API V3 calls.
+
 ## [2.0.0] - 2020-01-07
 
 - Updated HubSpot base package to official package. [#19]
