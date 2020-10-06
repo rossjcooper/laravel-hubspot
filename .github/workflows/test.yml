@@ -39,5 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
+      - name: Execute CS check
+        run: vendor/bin/php-cs-fixer fix --dry-run
       - name: Execute tests
         run: vendor/bin/phpunit
