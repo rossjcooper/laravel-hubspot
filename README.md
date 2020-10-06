@@ -1,6 +1,6 @@
 # HubSpot PHP API Client Wrapper for Laravel
 
-[![Latest Stable Version](https://poser.pugx.org/rossjcooper/laravel-hubspot/v/stable)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Total Downloads](https://poser.pugx.org/rossjcooper/laravel-hubspot/downloads)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Build Status](https://travis-ci.org/rossjcooper/laravel-hubspot.svg?branch=master)](https://travis-ci.org/rossjcooper/laravel-hubspot)
+[![Latest Stable Version](https://poser.pugx.org/rossjcooper/laravel-hubspot/v/stable)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Total Downloads](https://poser.pugx.org/rossjcooper/laravel-hubspot/downloads)](https://packagist.org/packages/rossjcooper/laravel-hubspot)
 
 This is a wrapper for the [hubspot/hubspot-php](https://github.com/HubSpot/hubspot-php) package and gives the user a Service Container binding and facade of the `SevenShores\Hubspot\Factory::create('api-key')` function.
 
