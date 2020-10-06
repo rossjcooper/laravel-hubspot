@@ -7,7 +7,6 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-		 defaultTestSuite="unit"
          stopOnFailure="false">
     <testsuites>
         <testsuite name="unit">

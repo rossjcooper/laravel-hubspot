@@ -17,7 +17,7 @@ class ContactsTest extends TestCase
 
 		$this->assertIsArray($response->contacts);
 		// Test we have the default test contact
-		$this->assertEquals('Cool', $contact->properties->firstname->value);
-		$this->assertEquals('Robot (Sample Contact)', $contact->properties->lastname->value);
+		$this->assertEquals('Maria', $contact->properties->firstname->value);
+		$this->assertEquals('Johnson (Sample Contact)', $contact->properties->lastname->value);
 	}
 }

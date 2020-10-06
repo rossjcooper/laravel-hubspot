@@ -42,4 +42,6 @@ jobs:
       - name: Execute CS check
         run: vendor/bin/php-cs-fixer fix --dry-run
       - name: Execute tests
+        env:
+          HUBSPOT_API_KEY: ${{secrets.HUBSPOT_KEY}}
         run: vendor/bin/phpunit
