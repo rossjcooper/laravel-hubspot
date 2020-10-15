@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2020-10-15
+
+- Updated [Hubspot PHP package to v3](https://github.com/HubSpot/hubspot-php/compare/v2.0.6...v3.0.0), adding Guzzle 7 support 
+
 ## [3.0.0] - 2020-02-09
 
 ### Changed
@@ -18,8 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 [Unreleased]:https://github.com/rossjcooper/laravel-hubspot/compare/v2.0.0...HEAD
-[2.0.0]:https://github.com/rossjcooper/laravel-hubspot/compare/v2.0.0...1.3.0
-[3.0.0]:https://github.com/rossjcooper/laravel-hubspot/compare/v3.0.0...2.0.0
+[2.0.0]:https://github.com/rossjcooper/laravel-hubspot/compare/2.0.0...1.3.0
+[3.0.0]:https://github.com/rossjcooper/laravel-hubspot/compare/3.0.0...2.0.0
+[4.0.0]:https://github.com/rossjcooper/laravel-hubspot/compare/4.0.0...3.0.0
 
 [#19]: https://github.com/rossjcooper/laravel-hubspot/pull/19
 [#22]: https://github.com/rossjcooper/laravel-hubspot/pull/22
