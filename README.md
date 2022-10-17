@@ -11,7 +11,8 @@ This is a wrapper for the [hubspot/hubspot-php](https://github.com/HubSpot/hubsp
     - Add `Rossjcooper\LaravelHubSpot\HubSpotServiceProvider::class` to your providers array.
     - Add `'HubSpot' => Rossjcooper\LaravelHubSpot\Facades\HubSpot::class` to your aliases array.
 4. `php artisan vendor:publish --provider="Rossjcooper\LaravelHubSpot\HubSpotServiceProvider" --tag="config"` will create a `config/hubspot.php` file.
-5. Add your HubSpot API key into the your `.env` file: `HUBSPOT_API_KEY=yourApiKey`
+5. Add your HubSpot API key or private app access token  into the `.env` file: `HUBSPOT_API_KEY=yourApiKey`
+6. If you use the private app access token, you should alo add `HUBSPOT_USE_OAUTH2=true` to your `.env` file
 
 ## Usage
 You can use either the facade or inject the HubSpot class as a dependency:
