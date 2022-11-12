@@ -44,5 +44,6 @@ jobs:
         run: vendor/bin/php-cs-fixer fix --dry-run
       - name: Execute tests
         env:
-          HUBSPOT_API_KEY: ${{secrets.HUBSPOT_KEY}}
+          HUBSPOT_API_KEY: ${{secrets.HUBSPOT_PRIVATE_APP_KEY}}
+          HUBSPOT_USE_OAUTH2: true
         run: vendor/bin/phpunit
