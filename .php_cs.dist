@@ -10,6 +10,7 @@ return PhpCsFixer\Config::create()
 		'@Symfony' => true,
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'php_unit_method_casing' => ['case' => 'snake_case'],
     ])
 	->setIndent("\t")
     ->setLineEnding("\r\n")
