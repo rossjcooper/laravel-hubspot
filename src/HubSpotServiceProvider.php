@@ -13,13 +13,13 @@ class HubSpotServiceProvider extends ServiceProvider
 	{
 		//Bind the HubSpot wrapper class
 		$this->app->bind('Rossjcooper\LaravelHubSpot\HubSpot', function ($app) {
-            if (config('hubspot.use_oauth2')) {
-                return HubSpot::createWithOAuth2Token(
-                    config('hubspot.api_key'),
-                    null,
-                    config('hubspot.client_options', [])
-                );
-            }
+			if (env('HUBSPOT_USE_OAUTH2', config('hubspot.use_oauth2'))) {
+				return HubSpot::createWithOAuth2Token(
+					env('HUBSPOT_API_KEY', config('hubspot.api_key')),
+					null,
+					config('hubspot.client_options', [])
+				);
+			}
 
 			return HubSpot::create(
 				env('HUBSPOT_API_KEY', config('hubspot.api_key')),

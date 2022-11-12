@@ -23,13 +23,13 @@ class ServiceProviderTest extends TestCase
 	}
 
     public function test_oauth2_client_is_built()
-    {
-        Config::set('hubspot.use_oauth2', true);
-        Config::set('hubspot.api_key', 'FooBarBaz');
+	{
+		Config::set('hubspot.use_oauth2', true);
+		Config::set('hubspot.api_key', 'FooBarBaz');
 
-        $hubspot = app(HubSpot::class);
+		$hubspot = app(HubSpot::class);
 
-        $this->assertEquals('FooBarBaz', $hubspot->getClient()->key);
-        $this->assertTrue($hubspot->getClient()->oauth2);
-    }
+		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->getClient()->key);
+		$this->assertTrue($hubspot->getClient()->oauth2);
+	}
 }
