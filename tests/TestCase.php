@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
+use Orchestra\Testbench\Bootstrap\LoadConfiguration;
 use Orchestra\Testbench\TestCase as OrchTestCase;
 use Rossjcooper\LaravelHubSpot\HubSpotServiceProvider;
 
@@ -23,6 +24,7 @@ abstract class TestCase extends OrchTestCase
 	{
 		$app->useEnvironmentPath(__DIR__.'/..');
 		$app->bootstrapWith([LoadEnvironmentVariables::class]);
+		$app->bootstrapWith([LoadConfiguration::class]);
 		parent::getEnvironmentSetUp($app);
 	}
 }

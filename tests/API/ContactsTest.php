@@ -2,16 +2,18 @@
 
 namespace Tests\API;
 
-use Rossjcooper\LaravelHubSpot\HubSpot;
+use HubSpot\Discovery\Discovery;
 use Tests\TestCase;
 
 class ContactsTest extends TestCase
 {
 	public function test_get_contacts()
 	{
-		$hubspot = app(HubSpot::class);
+        /** @var Discovery $hubspot */
+		$hubspot = app(Discovery::class);
 
-		$response = $hubspot->contacts()->all();
+		$response = $hubspot->crm()->contacts()->basicApi()->getPage();
+        dd($response);
 
 		$contact = $response->contacts[0];
 

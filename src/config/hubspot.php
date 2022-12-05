@@ -1,17 +1,30 @@
 <?php
 
 return [
-	/*
-	 * Either the API key or the private app access token
-	 */
-	'api_key' => env('HUBSPOT_API_KEY'),
+    
+    /**
+     * Connect to the Hubspot API using a private app access token or an Oauth2 access token
+     */
+	'access_token' => env('HUBSPOT_ACCESS_TOKEN'),
 
-	/*
-	 * Should the library connect via OAuth2 or use the API key. The usage of the API key will be deprecated on
-	 * November 30th, 2022.
-	 */
-	'use_oauth2' => env('HUBSPOT_USE_OAUTH2', false),
+    /**
+     * Connect to the Hubspot API using a Developer API Key
+     */
+	'developer_key' => env('HUBSPOT_DEVELOPER_KEY'),
 
+    /**
+     * Options to enable built in middlewares to handle rate limiting
+     * 
+     * @see https://github.com/HubSpot/hubspot-api-php#api-client-comes-with-middleware-for-implementation-of-rate-and-concurrent-limiting
+     */
+    'enable_constant_delay' => false,
+    'exponential_delay' => null,
+
+    /**
+     * Guzzle Client options that are user for Hubspot API requests
+     * 
+     * @see https://docs.guzzlephp.org/en/stable/request-options.html
+     */
 	'client_options' => [
 		'http_errors' => true,
 	],
