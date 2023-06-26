@@ -44,5 +44,5 @@ jobs:
         run: composer lint
       - name: Execute tests
         env:
-          HUBSPOT_DEVELOPER_KEY: ${{secrets.HUBSPOT_PRIVATE_APP_KEY}}
+          HUBSPOT_ACCESS_TOKEN: ${{secrets.HUBSPOT_PRIVATE_APP_KEY}}
         run: vendor/bin/phpunit
