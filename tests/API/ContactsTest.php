@@ -2,22 +2,24 @@
 
 namespace Tests\API;
 
-use Rossjcooper\LaravelHubSpot\HubSpot;
+use HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectWithAssociations;
+use HubSpot\Discovery\Discovery;
 use Tests\TestCase;
 
 class ContactsTest extends TestCase
 {
 	public function test_get_contacts()
 	{
-		$hubspot = app(HubSpot::class);
+		/** @var Discovery $hubspot */
+		$hubspot = app(Discovery::class);
 
-		$response = $hubspot->contacts()->all();
+		$response = $hubspot->crm()->contacts()->basicApi()->getPage();
 
-		$contact = $response->contacts[0];
+		$this->assertIsArray($response->getResults());
 
-		$this->assertIsArray($response->contacts);
 		// Test we have the default test contact
-		$this->assertEquals('Maria', $contact->properties->firstname->value);
-		$this->assertEquals('Johnson (Sample Contact)', $contact->properties->lastname->value);
+		/** @var SimplePublicObjectWithAssociations $contact */
+		$contact = $response->getResults()[0];
+		$this->assertEquals('Maria', $contact->getProperties()['firstname']);
 	}
 }

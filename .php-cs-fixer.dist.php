@@ -2,17 +2,15 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->exclude('vendor')
-    ->in(__DIR__)
-;
+    ->in(__DIR__);
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config)
     ->setRules([
-		'@Symfony' => true,
+        '@Symfony' => true,
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
         'php_unit_method_casing' => ['case' => 'snake_case'],
     ])
-	->setIndent("\t")
+    ->setIndent("\t")
     ->setLineEnding("\r\n")
-    ->setFinder($finder)
-;
+    ->setFinder($finder);

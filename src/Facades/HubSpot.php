@@ -2,6 +2,7 @@
 
 namespace Rossjcooper\LaravelHubSpot\Facades;
 
+use HubSpot\Discovery\Discovery;
 use Illuminate\Support\Facades\Facade;
 
 class HubSpot extends Facade
@@ -13,6 +14,6 @@ class HubSpot extends Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return 'Rossjcooper\LaravelHubSpot\HubSpot';
+		return Discovery::class;
 	}
 }
