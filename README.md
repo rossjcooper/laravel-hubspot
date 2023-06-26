@@ -19,7 +19,7 @@ You can use either the facade or inject the HubSpot class as a dependency:
 ### Facade
 ```php
 // Echo all contacts first and last names
-$response = HubSpot::contacts()->getResults();
+$response = HubSpot::crm()->contacts()->basicApi()->getPage();
     foreach ($response->contacts as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
@@ -30,7 +30,7 @@ $response = HubSpot::contacts()->getResults();
 ```
 ```php
 Route::get('/', function (HubSpot\Discovery\Discovery $hubspot) {
-    $response = $hubspot->contacts()->getResults();
+    $response = $hubspot->crm()->contacts()->basicApi()->getPage();
     foreach ($response->contacts as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
