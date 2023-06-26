@@ -2,34 +2,57 @@
 
 namespace Tests\Unit;
 
+use HubSpot\Discovery\Discovery;
 use Illuminate\Support\Facades\Config;
-use Rossjcooper\LaravelHubSpot\HubSpot;
 use Tests\TestCase;
 
 class ServiceProviderTest extends TestCase
 {
 	public function test_service_provider_bindings()
 	{
-		$hubspot = app(HubSpot::class);
+		$hubspot = app(Discovery::class);
 
-		$this->assertInstanceOf(HubSpot::class, $hubspot);
+		$this->assertInstanceOf(Discovery::class, $hubspot);
 	}
 
-	public function test_api_key_set()
+	/** @test */
+	public function private_app_access_token_is_set_correctly()
 	{
-		$hubspot = app(HubSpot::class);
+		$apiKey = 'MySecretKey';
 
-		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->getClient()->key);
+		Config::set('hubspot.access_token', $apiKey);
+
+		/** @var Discovery $hubspot */
+		$hubspot = app(Discovery::class);
+
+		/*
+		 * Use reflection API to access private/protected properties
+		 */
+		$config = (new \ReflectionObject($hubspot))->getParentClass()->getProperty('config');
+		$config->setAccessible(true);
+
+		$accessToken = (new \ReflectionObject($config->getValue($hubspot)))->getProperty('accessToken');
+		$accessToken->setAccessible(true);
+
+		$this->assertEquals($apiKey, $accessToken->getValue($config->getValue($hubspot)));
 	}
 
-	public function test_oauth2_client_is_built()
+	/** @test */
+	public function developer_key_is_set_correctly()
 	{
-		Config::set('hubspot.use_oauth2', true);
-		Config::set('hubspot.api_key', 'FooBarBaz');
+		$devKey = 'MySecretKey';
 
-		$hubspot = app(HubSpot::class);
+		Config::set('hubspot.access_token', null);
+		Config::set('hubspot.developer_key', $devKey);
 
-		$this->assertEquals(env('HUBSPOT_API_KEY'), $hubspot->getClient()->key);
-		$this->assertTrue($hubspot->getClient()->oauth2);
+		$hubspot = app(Discovery::class);
+
+		$config = (new \ReflectionObject($hubspot))->getParentClass()->getProperty('config');
+		$config->setAccessible(true);
+
+		$accessToken = (new \ReflectionObject($config->getValue($hubspot)))->getProperty('developerApiKey');
+		$accessToken->setAccessible(true);
+
+		$this->assertEquals($devKey, $accessToken->getValue($config->getValue($hubspot)));
 	}
 }

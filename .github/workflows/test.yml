@@ -41,9 +41,8 @@ jobs:
       - name: Execute CS check
         env: 
           PHP_CS_FIXER_IGNORE_ENV: 1
-        run: vendor/bin/php-cs-fixer fix --dry-run
+        run: composer lint
       - name: Execute tests
         env:
-          HUBSPOT_API_KEY: ${{secrets.HUBSPOT_PRIVATE_APP_KEY}}
-          HUBSPOT_USE_OAUTH2: true
+          HUBSPOT_DEVELOPER_KEY: ${{secrets.HUBSPOT_PRIVATE_APP_KEY}}
         run: vendor/bin/phpunit

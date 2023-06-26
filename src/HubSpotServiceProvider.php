@@ -4,62 +4,78 @@ namespace Rossjcooper\LaravelHubSpot;
 
 use GuzzleHttp\Client;
 use HubSpot\Discovery\Discovery;
-use Hubspot\Factory;
-
+use HubSpot\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class HubSpotServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-        $this->app->bind(Discovery::class, function ($app) {
-            $handlerStack = \GuzzleHttp\HandlerStack::create();
+	public function register()
+	{
+		$this->includeConfig();
 
-            if (config('hubspot.enable_constant_delay')) {
-                $handlerStack->push(
-                    \HubSpot\RetryMiddlewareFactory::createRateLimitMiddleware(
-                        \HubSpot\Delay::getConstantDelayFunction()
-                    )
-                );
-            }
+		$this->app->bind(Discovery::class, function ($app) {
+			$this->includeConfig();
 
-            if ($exponentialDelay = config('hubspot.exponential_delay')) {
-                $handlerStack->push(
-                    \HubSpot\RetryMiddlewareFactory::createRateLimitMiddleware(
-                        \HubSpot\Delay::getExponentialDelayFunction($exponentialDelay)
-                    )
-                );
-            }
+			$this->mergeConfigFrom(
+				__DIR__.'/config/hubspot.php',
+				'hubspot'
+			);
 
-            $client = new Client(array_merge(
-                config('hubspot.client_options'),
-                [
-                    'handler' => $handlerStack,
-                ]
-            ));
+			$handlerStack = \GuzzleHttp\HandlerStack::create();
 
-            if (config('hubspot.access_token')) {
-                return Factory::createWithAccessToken(
-                    config('hubspot.access_token'),
-                    $client,
-                );
-            }
+			if (config('hubspot.enable_constant_delay')) {
+				$handlerStack->push(
+					\HubSpot\RetryMiddlewareFactory::createRateLimitMiddleware(
+						\HubSpot\Delay::getConstantDelayFunction()
+					)
+				);
+			}
 
-            return Factory::createWithDeveloperApiKey(
-                config('hubspot.developer_key'),
-                $client,
-            );
-        });
-    }
+			if ($exponentialDelay = config('hubspot.exponential_delay')) {
+				$handlerStack->push(
+					\HubSpot\RetryMiddlewareFactory::createRateLimitMiddleware(
+						\HubSpot\Delay::getExponentialDelayFunction($exponentialDelay)
+					)
+				);
+			}
 
-    /**
-     * Perform post-registration booting of services.
-     */
-    public function boot()
-    {
-        // config
-        $this->publishes([
-            __DIR__ . '/config/hubspot.php' => config_path('hubspot.php'),
-        ], 'config');
-    }
+			$client = new Client(array_merge(
+				config('hubspot.client_options'),
+				[
+					'handler' => $handlerStack,
+				]
+			));
+
+			if ($accessToken = config('hubspot.access_token')) {
+				return Factory::createWithAccessToken(
+					$accessToken,
+					$client,
+				);
+			}
+
+			return Factory::createWithDeveloperApiKey(
+				config('hubspot.developer_key'),
+				$client,
+			);
+		});
+	}
+
+	/**
+	 * Perform post-registration booting of services.
+	 */
+	public function boot()
+	{
+		// config
+		$this->publishes([
+			__DIR__.'/config/hubspot.php' => config_path('hubspot.php'),
+		], 'config');
+	}
+
+	protected function includeConfig(): void
+	{
+		$this->mergeConfigFrom(
+			__DIR__.'/config/hubspot.php',
+			'hubspot'
+		);
+	}
 }
