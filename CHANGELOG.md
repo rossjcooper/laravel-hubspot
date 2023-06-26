@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.0] - 2023-06-23
+
+- Updated to use the new [Hubspot PHP API Client](https://github.com/HubSpot/hubspot-api-php).
+
 ## [5.0.0] - 2022-11-12
 
 - Updated Hubspot package to v5
