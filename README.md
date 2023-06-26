@@ -19,36 +19,35 @@ You can use either the facade or inject the HubSpot class as a dependency:
 ### Facade
 ```php
 // Echo all contacts first and last names
-$response = HubSpot::contacts()->all();
+$response = HubSpot::contacts()->getResults();
     foreach ($response->contacts as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
-            $contact->properties->firstname->value,
-            $contact->properties->lastname->value
+            $contact->getProperties()['firstname'],
+            $contact->getProperties()['lastname']
         );
     }
 ```
-### Dependency Injection
 ```php
-Route::get('/', function (Rossjcooper\LaravelHubSpot\HubSpot $hubspot) {
-    $response = $hubspot->contacts()->all();
+Route::get('/', function (HubSpot\Discovery\Discovery $hubspot) {
+    $response = $hubspot->contacts()->getResults();
     foreach ($response->contacts as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
-            $contact->properties->firstname->value,
-            $contact->properties->lastname->value
+            $contact->getProperties()['firstname'],
+            $contact->getProperties()['lastname']
         );
     }
 });
 ```
 
-For more info on using the actual API see the main repo [hubspot/hubspot-php](https://github.com/HubSpot/hubspot-php)
+For more info on using the actual API see the main repo [Hubspot/hubspot-api-php](https://github.com/HubSpot/hubspot-api-php)
 
 ## Testing
 
-We're using the brilliant [Orchestra Testbench](https://github.com/orchestral/testbench) v4 to run unit tests in a Laravel based environment. If you wish to run tests be sure to have a HubSpot API key inside your `.env` file and run `./vendor/bin/phpunit`
+We're using the brilliant [Orchestra Testbench](https://github.com/orchestral/testbench) v4 to run unit tests in a Laravel based environment. If you wish to run tests be sure to have a HubSpot API key inside your `.env` file and run `composer run test`
 
 Current unit test access the HubSpot API and expect to see the demo contacts/leads that HubSpot provides to its developer accounts.
 
 ## Issues
-Please only report issues relating to the Laravel side of things here, main API issues should be reported [here](https://github.com/ryanwinchester/hubspot-php/issues)
+Please only report issues relating to the Laravel side of things here, main API issues should be reported [here](https://github.com/HubSpot/hubspot-api-php/issues)
