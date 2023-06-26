@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/rossjcooper/laravel-hubspot/v/stable)](https://packagist.org/packages/rossjcooper/laravel-hubspot) [![Total Downloads](https://poser.pugx.org/rossjcooper/laravel-hubspot/downloads)](https://packagist.org/packages/rossjcooper/laravel-hubspot)
 
-This is a wrapper for the [hubspot/hubspot-php](https://github.com/HubSpot/hubspot-php) package and gives the user a Service Container binding and facade of the `SevenShores\Hubspot\Factory::create('api-key')` function.
+This is a wrapper for the [Hubspot/hubspot-api-php](https://github.com/HubSpot/hubspot-api-php) package and gives the user a Service Container binding and facade of the `HubSpot\Discovery\Discovery` class.
 
 ## Installation
 1. `composer require rossjcooper/laravel-hubspot`
@@ -45,7 +45,7 @@ For more info on using the actual API see the main repo [Hubspot/hubspot-api-php
 
 ## Testing
 
-We're using the brilliant [Orchestra Testbench](https://github.com/orchestral/testbench) v4 to run unit tests in a Laravel based environment. If you wish to run tests be sure to have a HubSpot API key inside your `.env` file and run `composer run test`
+We're using the brilliant [Orchestra Testbench](https://github.com/orchestral/testbench) to run unit tests in a Laravel based environment. If you wish to run tests be sure to have a HubSpot API key inside your `.env` file and run `composer run test`
 
 Current unit test access the HubSpot API and expect to see the demo contacts/leads that HubSpot provides to its developer accounts.
 
