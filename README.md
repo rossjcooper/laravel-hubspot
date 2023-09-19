@@ -11,7 +11,7 @@ This is a wrapper for the [Hubspot/hubspot-api-php](https://github.com/HubSpot/h
     - Add `Rossjcooper\LaravelHubSpot\HubSpotServiceProvider::class` to your providers array.
     - Add `'HubSpot' => Rossjcooper\LaravelHubSpot\Facades\HubSpot::class` to your aliases array.
 4. `php artisan vendor:publish --provider="Rossjcooper\LaravelHubSpot\HubSpotServiceProvider" --tag="config"` will create a `config/hubspot.php` file.
-5. Add your HubSpot API key or private app access token  into the `.env` file: `HUBSPOT_API_KEY=yourApiKey`
+5. Add your HubSpot API key and private app access token into the `.env` file: `HUBSPOT_ACCESS_TOKEN=yourApiKey`
 6. If you use the private app access token, you should alo add `HUBSPOT_USE_OAUTH2=true` to your `.env` file
 
 ## Usage
@@ -20,7 +20,7 @@ You can use either the facade or inject the HubSpot class as a dependency:
 ```php
 // Echo all contacts first and last names
 $response = HubSpot::crm()->contacts()->basicApi()->getPage();
-    foreach ($response->contacts as $contact) {
+    foreach ($response->getResults() as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
             $contact->getProperties()['firstname'],
@@ -31,7 +31,7 @@ $response = HubSpot::crm()->contacts()->basicApi()->getPage();
 ```php
 Route::get('/', function (HubSpot\Discovery\Discovery $hubspot) {
     $response = $hubspot->crm()->contacts()->basicApi()->getPage();
-    foreach ($response->contacts as $contact) {
+    foreach ($response->getResults() as $contact) {
         echo sprintf(
             "Contact name is %s %s." . PHP_EOL,
             $contact->getProperties()['firstname'],
@@ -40,6 +40,17 @@ Route::get('/', function (HubSpot\Discovery\Discovery $hubspot) {
     }
 });
 ```
+
+```php
+// Create a new contact
+$contactInput = new \HubSpot\Client\Crm\Contacts\Model\SimplePublicObjectInputForCreate();
+$contactInput->setProperties([
+    'email' => 'example@example.com'
+]);
+
+$contact = $hubspot->crm()->contacts()->basicApi()->create($contactInput);
+```
+
 
 For more info on using the actual API see the main repo [Hubspot/hubspot-api-php](https://github.com/HubSpot/hubspot-api-php)
 
